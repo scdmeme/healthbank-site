@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+﻿import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   Activity,
@@ -27,10 +27,10 @@ import {
 import { Cell, Pie, PieChart as RePieChart, ResponsiveContainer, Tooltip } from 'recharts'
 
 const LINKS = {
-  CONTRACT_ADDRESS: 'HBANK1111111111111111111111111111111111111',
+  CONTRACT_ADDRESS: 'B2Lc6R6JNqnpHkiBFkT2vN1J1m1BBkyBQzH2BgAXpump',
   CHARITY_VAULT_ADDRESS: 'HVLT1111111111111111111111111111111111111',
-  BUY_LINK: '#buy',
-  DEXSCREENER_LINK: '#dexscreener',
+  BUY_LINK: 'https://dexscreener.com/solana/B2Lc6R6JNqnpHkiBFkT2vN1J1m1BBkyBQzH2BgAXpump',
+  DEXSCREENER_LINK: 'https://dexscreener.com/solana/B2Lc6R6JNqnpHkiBFkT2vN1J1m1BBkyBQzH2BgAXpump',
   TELEGRAM_LINK: '#telegram',
   X_LINK: '#x',
   DOCS_LINK: '#docs',
@@ -46,12 +46,12 @@ const charityFunds = [
 ]
 
 const stats = [
-  { label: 'Total Fee Donations', value: 'Coming soon', icon: HandHeart },
+  { label: 'Total Fee Donations', value: 'Tracking live', icon: HandHeart },
   { label: 'Charity Funds', value: '4', icon: HeartPulse },
   { label: 'Buy Fee Split', value: '25% each', icon: CircleDollarSign },
-  { label: 'Holders', value: 'Coming soon', icon: Wallet },
-  { label: 'Volume', value: 'Coming soon', icon: Coins },
-  { label: 'Transparency Reports', value: 'Pending', icon: FileText },
+  { label: 'Holders', value: 'Live on Dexscreener', icon: Wallet },
+  { label: 'Volume', value: 'Live on Dexscreener', icon: Coins },
+  { label: 'Transparency Reports', value: 'First report pending', icon: FileText },
 ]
 
 const howItWorks = [
@@ -72,7 +72,7 @@ const howItWorks = [
   },
   {
     title: 'Track It On-Chain',
-    text: 'HealthBank will publish wallet addresses, transaction links and reports so the community can verify donation activity.',
+    text: 'HealthBank publishes wallet addresses, transaction links and reports so the community can verify donation activity.',
     icon: ShieldCheck,
   },
 ]
@@ -94,7 +94,7 @@ const bankBets = [
   },
   {
     id: 'trend',
-    title: 'Will $HBANK trend after launch?',
+    title: 'Will $HBANK trend live?',
     status: 'Meme Round',
     options: ['Send It', 'Emergency Room'],
     sentiment: 58,
@@ -110,11 +110,11 @@ const bankBets = [
 
 const scoreTiers = [
   ['< 3 days', 'New Patient', '1.0x'],
-  ['≥ 3 days', 'Stable Pulse', '1.25x'],
-  ['≥ 7 days', 'Healthy Holder', '1.75x'],
-  ['≥ 14 days', 'Vault Regular', '2.5x'],
-  ['≥ 30 days', 'Prime Account', '3.5x'],
-  ['≥ 60 days', 'Max HealthBank', '5.0x'],
+  ['в‰Ґ 3 days', 'Stable Pulse', '1.25x'],
+  ['в‰Ґ 7 days', 'Healthy Holder', '1.75x'],
+  ['в‰Ґ 14 days', 'Vault Regular', '2.5x'],
+  ['в‰Ґ 30 days', 'Prime Account', '3.5x'],
+  ['в‰Ґ 60 days', 'Max HealthBank', '5.0x'],
 ]
 
 const tokenomics = [
@@ -179,7 +179,7 @@ const faqs = [
   },
   {
     q: 'How can users verify donations?',
-    a: 'HealthBank should publish public wallet addresses, transaction links and transparency reports after launch.',
+    a: 'Users can verify activity through the published contract address, public Solana explorers and transparency reports as they are released.',
   },
 ]
 
@@ -347,7 +347,7 @@ function Hero({ copyText }) {
         <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
           <div className="mb-6 inline-flex flex-wrap items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white/72 shadow-glow">
             <span className="inline-flex h-2 w-2 rounded-full bg-pulse shadow-[0_0_18px_rgba(42,255,142,0.9)]" />
-            Community-driven. Fee-powered. Health-focused.
+            CA: {LINKS.CONTRACT_ADDRESS}
           </div>
           <h1 className="max-w-4xl text-5xl font-black tracking-[-0.06em] text-white sm:text-7xl lg:text-8xl">
             Buy <span className="text-gradient">$HBANK</span>. Fund the HealthBank.
@@ -378,7 +378,7 @@ function Hero({ copyText }) {
             <div className="relative flex items-center justify-between">
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.25em] text-pulse">HealthBank Account</p>
-                <h3 className="mt-2 text-2xl font-black">Launch Dashboard</h3>
+                <h3 className="mt-2 text-2xl font-black">Live Dashboard</h3>
               </div>
               <div className="grid h-12 w-12 place-items-center rounded-2xl border border-pulse/25 bg-pulse/10">
                 <HeartPulse className="h-6 w-6 text-pulse" />
@@ -389,10 +389,10 @@ function Hero({ copyText }) {
               {[
                 ['Network', 'Solana'],
                 ['Token', '$HBANK'],
-                ['Buy Fee Flow', 'Active after launch'],
+                ['Buy Fee Flow', 'LIVE'],
                 ['Charity Split', '25% each'],
                 ['Transparency', 'On-chain reporting planned'],
-                ['Status', 'Launch pending'],
+                ['Status', 'LIVE'],
               ].map(([label, value]) => (
                 <div key={label} className="flex items-center justify-between rounded-2xl border border-white/10 bg-black/20 px-4 py-3">
                   <span className="text-sm text-white/50">{label}</span>
@@ -411,8 +411,8 @@ function Hero({ copyText }) {
                 <Sparkles className="h-7 w-7 text-mint" />
               </div>
               <div className="relative mt-8 flex items-center justify-between text-xs font-bold uppercase tracking-[0.18em] text-white/60">
-                <span>HBANK • SOL</span>
-                <span>Vault pending</span>
+                <span>HBANK вЂў SOL</span>
+                <span>Vault live</span>
               </div>
             </div>
           </div>
@@ -473,7 +473,7 @@ function Stats() {
 function HowItWorks() {
   return (
     <section id="how-it-works" className="px-4 py-16 sm:px-6 lg:px-8">
-      <SectionIntro eyebrow="How it works" title="From meme buy to donation flow" text="HealthBank is built around a simple fee-routing concept with public reporting planned after launch." />
+      <SectionIntro eyebrow="How it works" title="From meme buy to donation flow" text="HealthBank is live on Solana with a fee-routing concept and public reporting updates." />
       <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2 lg:grid-cols-4">
         {howItWorks.map(({ title, text, icon: Icon }, index) => (
           <motion.div key={title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.06 }} className="glass-card p-6">
@@ -752,7 +752,7 @@ function Statement({ walletInput, setWalletInput, statement, generateStatement }
 function Tokenomics() {
   return (
     <section id="tokenomics" className="px-4 py-16 sm:px-6 lg:px-8">
-      <SectionIntro eyebrow="Tokenomics" title="Simple, transparent placeholders" text="Final fee settings, liquidity structure and token configuration will be published before launch." />
+      <SectionIntro eyebrow="Tokenomics" title="Live token overview" text="Live token settings and transaction data can be verified through the published contract address and public Solana explorers." />
       <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {tokenomics.map(([label, value]) => (
           <div key={label} className="glass-card p-5">
@@ -768,7 +768,7 @@ function Tokenomics() {
 function Roadmap() {
   return (
     <section className="px-4 py-16 sm:px-6 lg:px-8">
-      <SectionIntro eyebrow="Roadmap" title="Launch, route, report" text="A phased rollout for brand, token launch, fee-routing reports and social meme-bank mechanics." />
+      <SectionIntro eyebrow="Roadmap" title="Live, route, report" text="A phased rollout for brand, live token, fee-routing reports and social meme-bank mechanics." />
       <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-5">
         {roadmap.map((phase, index) => (
           <div key={phase.title} className="glass-card p-5">
@@ -852,7 +852,7 @@ function Footer({ navLinks, copyText }) {
               </div>
             </div>
             <div>
-              <h4 className="text-sm font-black uppercase tracking-[0.22em] text-white/40">Launch links</h4>
+              <h4 className="text-sm font-black uppercase tracking-[0.22em] text-white/40">Live links</h4>
               <div className="mt-4 grid gap-3">
                 {[
                   ['Buy', LINKS.BUY_LINK],
@@ -873,7 +873,7 @@ function Footer({ navLinks, copyText }) {
           </div>
         </div>
         <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/38 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2025 HealthBank. Built for Solana meme culture.</p>
+          <p>В© 2025 HealthBank. Built for Solana meme culture.</p>
           <p>Contract: {shortAddress(LINKS.CONTRACT_ADDRESS)}</p>
         </div>
       </div>
@@ -890,3 +890,4 @@ function Toast({ message }) {
 }
 
 export default App
+
