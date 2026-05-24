@@ -27,10 +27,10 @@ import {
 import { Cell, Pie, PieChart as RePieChart, ResponsiveContainer, Tooltip } from 'recharts'
 
 const LINKS = {
-  CONTRACT_ADDRESS: 'B2Lc6R6JNqnpHkiBFkT2vN1J1m1BBkyBQzH2BgAXpump',
+  CONTRACT_ADDRESS: '3NvA7SzKJFm27Wsq3zdLiPs1AHNtAtUozuPcRyrWpump',
   CHARITY_VAULT_ADDRESS: 'HVLT1111111111111111111111111111111111111',
-  BUY_LINK: 'https://dexscreener.com/solana/B2Lc6R6JNqnpHkiBFkT2vN1J1m1BBkyBQzH2BgAXpump',
-  DEXSCREENER_LINK: 'https://dexscreener.com/solana/B2Lc6R6JNqnpHkiBFkT2vN1J1m1BBkyBQzH2BgAXpump',
+  BUY_LINK: 'https://dexscreener.com/solana/3NvA7SzKJFm27Wsq3zdLiPs1AHNtAtUozuPcRyrWpump',
+  DEXSCREENER_LINK: 'https://dexscreener.com/solana/3NvA7SzKJFm27Wsq3zdLiPs1AHNtAtUozuPcRyrWpump',
   TELEGRAM_LINK: '#telegram',
   X_LINK: '#x',
   DOCS_LINK: '#docs',
@@ -890,4 +890,5 @@ function Toast({ message }) {
 }
 
 export default App
+
 

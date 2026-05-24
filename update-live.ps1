@@ -1,10 +1,13 @@
-$CA = "B2Lc6R6JNqnpHkiBFkT2vN1J1m1BBkyBQzH2BgAXpump"
+$CA = "3NvA7SzKJFm27Wsq3zdLiPs1AHNtAtUozuPcRyrWpump"
 
 $p = "src\App.jsx"
 $t = Get-Content $p -Raw
 
-# Replace contract address everywhere through the main constant
+# Replace old / placeholder contract address everywhere through the main constant
 $t = $t -replace "CONTRACT_ADDRESS:\s*'[^']+'", "CONTRACT_ADDRESS: '$CA'"
+
+# Also replace previous CA if it appears directly in text
+$t = $t.Replace("B2Lc6R6JNqnpHkiBFkT2vN1J1m1BBkyBQzH2BgAXpump", $CA)
 
 # Update live buy / chart links
 $t = $t -replace "BUY_LINK:\s*'[^']+'", "BUY_LINK: 'https://dexscreener.com/solana/$CA'"
