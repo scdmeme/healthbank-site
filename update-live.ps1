@@ -1,17 +1,22 @@
-$CA = "3NvA7SzKJFm27Wsq3zdLiPs1AHNtAtUozuPcRyrWpump"
+$CA = "Cc6egvHi4LChHf27hSFqRcrGPReJ1A9Nef4eaRL7pump"
 
 $p = "src\App.jsx"
 $t = Get-Content $p -Raw
 
-# Replace old / placeholder contract address everywhere through the main constant
+# Replace contract address in main constant
 $t = $t -replace "CONTRACT_ADDRESS:\s*'[^']+'", "CONTRACT_ADDRESS: '$CA'"
+$t = $t -replace 'CONTRACT_ADDRESS:\s*"[^"]+"', "CONTRACT_ADDRESS: `"$CA`""
 
-# Also replace previous CA if it appears directly in text
+# Replace old CAs if they appear directly anywhere
 $t = $t.Replace("B2Lc6R6JNqnpHkiBFkT2vN1J1m1BBkyBQzH2BgAXpump", $CA)
+$t = $t.Replace("3NvA7SzKJFm27Wsq3zdLiPs1AHNtAtUozuPcRyrWpump", $CA)
 
 # Update live buy / chart links
 $t = $t -replace "BUY_LINK:\s*'[^']+'", "BUY_LINK: 'https://dexscreener.com/solana/$CA'"
+$t = $t -replace 'BUY_LINK:\s*"[^"]+"', "BUY_LINK: `"https://dexscreener.com/solana/$CA`""
+
 $t = $t -replace "DEXSCREENER_LINK:\s*'[^']+'", "DEXSCREENER_LINK: 'https://dexscreener.com/solana/$CA'"
+$t = $t -replace 'DEXSCREENER_LINK:\s*"[^"]+"', "DEXSCREENER_LINK: `"https://dexscreener.com/solana/$CA`""
 
 # Header text -> CA
 $t = $t.Replace("Community-driven. Fee-powered. Health-focused.", "CA: {LINKS.CONTRACT_ADDRESS}")
